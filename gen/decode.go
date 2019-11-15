@@ -99,7 +99,7 @@ func (d *decodeGen) structAsMap(s *Struct) {
 
 	d.p.printf("\nfor %s > 0 {\n%s--", sz, sz)
 	d.assignAndCheck("field", mapKey)
-	d.p.print("\nswitch msgp.UnsafeString(field) {")
+	d.p.print("\nswitch msgp.SafeString(field) {")
 	for i := range s.Fields {
 		d.ctx.PushString(s.Fields[i].FieldName)
 		d.p.printf("\ncase \"%s\":", s.Fields[i].FieldTag)

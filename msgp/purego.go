@@ -1,15 +1,13 @@
-// +build purego appengine
-
 package msgp
 
 // let's just assume appengine
 // uses 64-bit hardware...
 const smallint = false
 
-func UnsafeString(b []byte) string {
+func SafeString(b []byte) string {
 	return string(b)
 }
 
-func UnsafeBytes(s string) []byte {
+func SafeBytes(s string) []byte {
 	return []byte(s)
 }

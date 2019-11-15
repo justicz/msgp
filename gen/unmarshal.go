@@ -100,7 +100,7 @@ func (u *unmarshalGen) mapstruct(s *Struct) {
 	u.p.printf("\nfor %s > 0 {", sz)
 	u.p.printf("\n%s--; field, bts, err = msgp.ReadMapKeyZC(bts)", sz)
 	u.p.wrapErrCheck(u.ctx.ArgsStr())
-	u.p.print("\nswitch msgp.UnsafeString(field) {")
+	u.p.print("\nswitch msgp.SafeString(field) {")
 	for i := range s.Fields {
 		if !u.p.ok() {
 			return
